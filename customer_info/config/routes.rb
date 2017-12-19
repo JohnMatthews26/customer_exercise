@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :categories, only: [:create, :destroy, :show, :index]
     resources :customers, only: [:create, :destroy, :show, :index]
     resources :products, only: [:create, :destroy, :show, :index]
-    resources :order, only: [:create, :destroy, :show, :index]
+    resources :orders, only: [:create, :destroy, :show, :index]
+    resources :product_orders, only: [:create, :destroy, :show, :index]
+    resources :categories_join_tables, only: [:create, :destroy, :show, :index]
   end
 end

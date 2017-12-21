@@ -1,5 +1,5 @@
 require 'date'
-require 'datetime'
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -19,10 +19,6 @@ class ApplicationController < ActionController::Base
     where
     customers.id = 1 and product_orders.number_purchased = 15 and categories.id = 1
     SQL
-  end
-
-  def products_by_date_range
-    
   end
 
 end

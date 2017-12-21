@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CustomerInfo</title>
+    <title>Customer Info</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <form class="" action="<%=api_orders_url%>" method="get">
+      <input type="text" name="start_date[month]" value="Start Day">
+      <input type="text" name="start_date[day]" value="">
+      <input type="text" name="start_date[year]" value="">
+
+      <input type="text" name="end_date[month]" value="">
+      <input type="text" name="end_date[day]" value="">
+      <input type="text" name="end_date[year]" value="">
+      <input type="submit" value="Find Orders">
+
+
+    </form>
     <%= yield %>
   </body>
 </html>

@@ -9,28 +9,34 @@
   </head>
 
   <body>
-    <form class="" action="<%=api_orders_url%>" method="get">
-      Start Month
-      <input type="text" name="start_date[month]" value="">
-      Start Day
-      <input type="text" name="start_date[day]" value="">
-      Start Year
-      <input type="text" name="start_date[year]" value="">
-      End Month
-      <input type="text" name="end_date[month]" value="">
-      End Day
-      <input type="text" name="end_date[day]" value="">
-      End Year
-      <input type="text" name="end_date[year]" value="">
-      <input type="submit" value="Find Orders by Date Range">
-    </form>
+    <div class="main-div">
+      <form class="date-range-form" action="<%=api_orders_url%>" method="get">
+        <div class="Start-date-div">
+          Start Month
+          <input type="text" name="start_date[month]" value="" class="date-input">
+          Start Day
+          <input type="text" name="start_date[day]" value="" class="date-input">
+          Start Year
+          <input type="text" name="start_date[year]" value="" class="date-input">
+        </div>
+        <div class="end-date-div">
+          End Month
+          <input type="text" name="end_date[month]" value="" class="date-input">
+          End Day
+          <input type="text" name="end_date[day]" value="" class="date-input">
+          End Year
+          <input type="text" name="end_date[year]" value="" class="date-input">
+          <input type="submit" value="Find Orders by Date Range" class="Date-Range-Submit">
+        </div>
+      </form>
 
-    <form class="" action="<%=api_customers_url%>" method="get">
-      <input type="text" name="customer_id" value="">
-      <input type="submit" name="" value="Search By Customer">
+      <form class="customer-search" action="<%=api_customers_url%>" method="get">
+        Enter Customer Id
+        <input type="text" name="customer_id" value="">
+        <input type="submit" name="" value="Search By Customer Id">
 
-    </form>
-
+      </form>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -1,3 +1,36 @@
-// Place all the styles related to the static_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* line 4, /Users/johnmatthews/Desktop/customer_exercise/customer_info/app/assets/stylesheets/static_pages.scss */
+/* line 6, /Users/johnmatthews/Desktop/customer_exercise/customer_info/app/assets/stylesheets/static_pages.scss */
+.Start-date-div {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding-bottom: 40px;
+}
+
+/* line 10, /Users/johnmatthews/Desktop/customer_exercise/customer_info/app/assets/stylesheets/static_pages.scss */
+/* line 14, /Users/johnmatthews/Desktop/customer_exercise/customer_info/app/assets/stylesheets/static_pages.scss */
+.end-date-div {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+/* line 19, /Users/johnmatthews/Desktop/customer_exercise/customer_info/app/assets/stylesheets/static_pages.scss */
+.main-div {
+  display: flex;
+}
+
+/* line 23, /Users/johnmatthews/Desktop/customer_exercise/customer_info/app/assets/stylesheets/static_pages.scss */
+form.customer-search {
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+input.date-input {
+    width: 100px;
+}
+
+input.Date-Range-Submit {
+    width: 160px;
+}

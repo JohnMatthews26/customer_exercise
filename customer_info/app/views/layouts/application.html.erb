@@ -10,17 +10,27 @@
 
   <body>
     <form class="" action="<%=api_orders_url%>" method="get">
-      <input type="text" name="start_date[month]" value="Start Day">
+      Start Month
+      <input type="text" name="start_date[month]" value="">
+      Start Day
       <input type="text" name="start_date[day]" value="">
+      Start Year
       <input type="text" name="start_date[year]" value="">
-
+      End Month
       <input type="text" name="end_date[month]" value="">
+      End Day
       <input type="text" name="end_date[day]" value="">
+      End Year
       <input type="text" name="end_date[year]" value="">
-      <input type="submit" value="Find Orders">
+      <input type="submit" value="Find Orders by Date Range">
+    </form>
 
+    <form class="" action="<%=api_customers_url%>" method="get">
+      <input type="text" name="customer_id" value="">
+      <input type="submit" name="" value="Search By Customer">
 
     </form>
+
     <%= yield %>
   </body>
 </html>

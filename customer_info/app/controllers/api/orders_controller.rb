@@ -31,15 +31,19 @@ class Api::OrdersController < ApplicationController
 
 
     @orders_arr = []
-    # @daily_orders = {}
+    @daily_orders = {}
+    @weekly_orders = {}
+    @monthly_orders = {}
     date_range.each do |date|
-
+      week = date.cweek.to_s + ", " + date.cwyear.to_s
+      month = date.mon.to_s + ", " + date.cwyear.to_s
       orders = Order.where(order_date: date)
       if orders.empty?
         next
       end
-      @daily_orders = {}
+      @weekly_orders[week] = {}
       @daily_orders[date] = {}
+      @monthly_orders[month] = {}
       orders.each do |order|
           single_order = ProductOrder.where(order_id: order.id)
           if @daily_orders[date][single_order[0].product_id]
@@ -47,9 +51,22 @@ class Api::OrdersController < ApplicationController
           else
             @daily_orders[date][single_order[0].product_id] = single_order[0].number_purchased
           end
+          if @weekly_orders[week][single_order[0].product_id]
+            @weekly_orders[week][single_order[0].product_id] += single_order[0].number_purchased
+          else
+            @weekly_orders[week][single_order[0].product_id] = single_order[0].number_purchased
+          end
+          if @monthly_orders[month][single_order[0].product_id]
+            @monthly_orders[month][single_order[0].product_id] += single_order[0].number_purchased
+          else
+            @monthly_orders[month][single_order[0].product_id] = single_order[0].number_purchased
+          end
         end
-        @orders_arr.push(@daily_orders)
+
     end
+    @orders_arr.push(@daily_orders)
+    @orders_arr.push(@weekly_orders)
+    @orders_arr.push(@monthly_orders)
     render json: @orders_arr
 
   end

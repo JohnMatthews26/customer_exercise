@@ -30,9 +30,8 @@
         </div>
       </form>
 
-      <form class="customer-search" action="<%=api_customers_url%>" method="get">
-        Enter Customer Id
-        <input type="text" name="customer_id" value="">
+      <form class="customer-search" action="<%=api_customer_url("customer_id")%>" method="get">
+        <input id="customer_id" type="text" name="customer_id" value="">
         <input type="submit" name="" value="Search By Customer Id">
 
       </form>

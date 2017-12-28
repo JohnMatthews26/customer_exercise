@@ -28,4 +28,4 @@ Add a button that allows the user to export the data to CSV.
 
 ### Data Structure
 
-I would change the way the data is displayed for products sold by date range to allow the user to more easily manipulate the data and have a breakdown by day/week/month.
+I would change the way the data is displayed for products sold by date range to allow the user to more easily manipulate the data.

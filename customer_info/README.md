@@ -24,7 +24,7 @@ Refactor my code to make it cleaner and more efficient.
 
 ### Export to CSV
 
-Add a button that allows the user to export the data to CSV.
+Add a button that allows the user to export the data to CSV. Modify data structure to more easily accommodate exporting to CSV.
 
 ### Data Structure
 

@@ -10,4 +10,6 @@ class Order < ApplicationRecord
     primary_key: :id,
     foreign_key: :product_id,
     class_name: :ProductOrder
+
+
 end

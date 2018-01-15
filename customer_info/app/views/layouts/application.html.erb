@@ -26,15 +26,17 @@
           <input type="text" name="end_date[day]" value="" class="date-input">
           End Year
           <input type="text" name="end_date[year]" value="" class="date-input">
-          <input type="submit" value="Find Orders by Date Range" class="Date-Range-Submit">
+          <input type="submit" name="API" value="Find Orders by Date Range" class="Date-Range-Submit">
+          <input type="submit" name="CSV" value="Export to CSV" class="Date-Range-Submit">
         </div>
       </form>
+
 
       <form class="customer-search" action="<%=api_customer_url("customer_id")%>" method="get">
         <input id="customer_id" type="text" name="customer_id" value="">
         <input type="submit" name="" value="Search By Customer Id">
       </form>
-      
+
     </div>
     <%= yield %>
   </body>

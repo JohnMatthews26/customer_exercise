@@ -45,7 +45,11 @@ class Api::OrdersController < ApplicationController
     @orders_arr.push(@daily_orders)
     @orders_arr.push(@weekly_orders)
     @orders_arr.push(@monthly_orders)
-    render json: @orders_arr
+    if params["CSV"]
+      send_data export_orders_to_csv(@orders_arr), filename: "orders-#{Date.today}.csv"
+    else
+      render json: @orders_arr
+    end
 
   end
 
@@ -53,5 +57,9 @@ class Api::OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:start_date, :end_date)
+  end
+
+  def export_orders_to_csv(arr)
+
   end
 end

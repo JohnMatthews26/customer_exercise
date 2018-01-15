@@ -7,7 +7,7 @@ class Api::OrdersController < ApplicationController
     params[:start_date]["month"].to_i, params[:start_date]["day"].to_i)..Date.new(params[:end_date]["year"].to_i,
     params[:end_date]["month"].to_i, params[:end_date]["day"].to_i)).to_a
 
-
+    @orders= Order.where(order_date: date_range)
     @orders_arr = []
     @daily_orders = {}
     @weekly_orders = {}
@@ -19,6 +19,7 @@ class Api::OrdersController < ApplicationController
       if orders.empty?
         next
       end
+
       @weekly_orders[week] = {}
       @daily_orders[date] = {}
       @monthly_orders[month] = {}
@@ -46,7 +47,7 @@ class Api::OrdersController < ApplicationController
     @orders_arr.push(@weekly_orders)
     @orders_arr.push(@monthly_orders)
     if params["CSV"]
-      send_data export_orders_to_csv(@orders_arr), filename: "orders-#{Date.today}.csv"
+      send_data @orders.export_orders_to_csv, filename: "orders-#{Date.today}.csv"
     else
       render json: @orders_arr
     end
@@ -59,7 +60,5 @@ class Api::OrdersController < ApplicationController
     params.require(:order).permit(:start_date, :end_date)
   end
 
-  def export_orders_to_csv(arr)
 
-  end
 end

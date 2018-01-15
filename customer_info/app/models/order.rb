@@ -11,5 +11,13 @@ class Order < ApplicationRecord
     foreign_key: :product_id,
     class_name: :ProductOrder
 
-
+    def self.export_orders_to_csv
+      attributes = ['Order_id', 'Customer_Id']
+      CSV.generate(headers: true) do |csv|
+        csv << attributes
+        all.each do |category|
+          csv << [category.id, category.customer_id]
+        end
+      end
+    end
 end

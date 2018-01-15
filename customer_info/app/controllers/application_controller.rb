@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
     customers.id = 1 and product_orders.number_purchased = 15 and categories.id = 1
     SQL
   end
-  
+
 
 end

@@ -12,6 +12,7 @@ class Api::OrdersController < ApplicationController
     @daily_orders = {}
     @weekly_orders = {}
     @monthly_orders = {}
+    
     date_range.each do |date|
       week = date.cweek.to_s + ", " + date.cwyear.to_s
       month = date.mon.to_s + ", " + date.cwyear.to_s
